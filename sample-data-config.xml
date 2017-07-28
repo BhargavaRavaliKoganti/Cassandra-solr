@@ -1,0 +1,34 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" driver="com.github.cassandra.jdbc.CassandraDriver" url="jdbc:c*://127.0.0.1:9042/test" autoCommit="true" rowLimit = '-1' batchSize="-1"/>
+	<document name="content">
+		<entity name="test" query="SELECT * from person" deltaImportQuery="select * from person where seq=${dataimporter.delta.seq}" deltaQuery="select seq from person where last_modified > '${dataimporter.last_index_time}' ALLOW FILTERING" autoCommit="true">
+			<field column="seq" name="id" />
+			<field column="last" name="last_s" />
+			<field column="first" name="first_s" />
+			<field column="city" name="city_s" />
+			<field column="zip" name="zip_s" />
+			<field column="street" name="street_s" />
+			<field column="age" name="age_s" />
+			<field column="state" name="state_s" />
+			<field column="dollar" name="dollar_s" />
+			<field column="pick" name="pick_s" />
+		</entity>
+	</document>
+</dataConfig>
+
+<!--org.apache.cassandra.cql.jdbc.CassandraDriver-->
+<!--localhost:9160-->
+<!--127.0.0.1:9042-->
+<!--com.github.cassandra.jdbc.CassandraDriver-->
+<!--com.datastax.driver.core.Cluster-->
+<!--org.bigsql.cassandra2.jdbc.CassandraDriver-->
+<!--sudo kill $(sudo lsof -t -i:7199)-->
+<!--com.dbschema.CassandraJdbcDriver-->
+<!--              deltaQuery="select ITEM_ID from FEATURE where last_modified > '${dataimporter.last_index_time}'"
+              parentDeltaQuery="select ID from item where ID=${feature.ITEM_ID}">
+        <field name="features" column="DESCRIPTION" /
+
+
+deltaImportQuery="select * from person where seq=${dataimporter.delta.seq}" deltaQuery="select seq from person where last_modified &gt;'${dataimporter.last_index_time}' ALLOW FILTERING"
+
+-->
